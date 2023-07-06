@@ -1,0 +1,102 @@
+
+version: '3'
+services:
+
+  # Supporting Containers
+
+  discovery:
+    build:
+      context: ./discovery
+    networks:
+      - elements
+
+  redis:
+    image: redis:4.0.1
+    networks:
+      - elements
+    ports:
+      - "6379:6379"
+
+  mongo:
+    image: mongo:5.3.2
+    networks:
+      - elements
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo:/data/db
+
+  # Elements Containers
+
+  ws:
+    build:
+      context: ./ui
+      args:
+        TAG: ${TAG:-master}
+    depends_on:
+      - api
+      - code-serve
+      - cdn-serve
+      - app-serve
+    networks:
+      - elements
+    ports:
+      - "8080:8080"
+    environment:
+      "dev.getelements.elements.http.path.prefix": admin
+
+  setup:
+    build:
+      context: ./setup
+      args:
+        TAG: ${TAG:-2.0.9}
+    networks:
+      - elements
+    ports:
+      - "2022:2022"
+    depends_on:
+      - mongo
+      - redis
+      - discovery
+    links:
+      - mongo
+
+  app-node-0:
+    build:
+      context: ./app-node
+      args:
+        TAG: ${TAG:-2.0.9}
+    depends_on:
+      - mongo
+      - redis
+      - discovery
+    networks:
+      - elements
+    volumes:
+      - script-repos:/opt/elements/script-repos
+      - script-storage-0:/opt/elements/script-storage
+
+  app-node-1:
+    build:
+      context: ./app-node
+      args:
+        TAG: ${TAG:-2.0.9}
+    depends_on:
+      - mongo
+      - redis
+      - discovery
+    networks:
+      - elements
+    volumes:
+      - script-repos:/opt/elements/script-repos
+      - script-storage-1:/opt/elements/script-storage
+
+networks:
+  elements:
+
+volumes:
+  mongo:
+  cdn-repos:
+  script-repos:
+  script-storage-0:
+  script-storage-1:

@@ -1,0 +1,10 @@
+/docker-distribution/*
+/docker-distribution.iml
+/docker-distribution.ipr
+/docker-distribution.iws
+/docker-distribution.zip
+/docker-distribution.tar.gz
+/docker-distribution.tar.bz2
+/*iml
+/*.idea
+
