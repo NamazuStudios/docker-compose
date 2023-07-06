@@ -1,7 +1,12 @@
-# Docker Distrbution
+# Elements Community Edition
 
 This repository has the basic configuration useful for starting and running
 Elements from the images released on ``distribution.getelements.dev``.
+
+## Important Links
+
+* Join our Discord - https://discord.gg/U7NSUSDDPc
+* Get your License Key Here - http://getelements.dev/get-elements
 
 ## Input Your License Key
 
