@@ -41,6 +41,8 @@ services:
       - elements
     ports:
       - "8080:8080"
+    volumes:
+      - script-repos:/opt/elements/script-repos
 
   setup:
     build:
