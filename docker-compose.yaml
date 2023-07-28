@@ -18,7 +18,7 @@ services:
       - "6379:6379"
 
   mongo:
-    image: mongodb/mongodb-community-server:5.0.3-ubuntu2004
+    image: mongodb/mongodb-community-server:4.4.7-ubuntu2004
     networks:
       - elements
     ports:
