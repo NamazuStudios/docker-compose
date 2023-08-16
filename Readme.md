@@ -15,7 +15,7 @@ Docker credentials storage. When logging in, your license key is your username
 and your license certificate is your password.
 
 ```text
-user@localhost :~ $ echo "<certificate>" | docker login -u "<key>"" distribution.getelements.dev
+user@localhost :~ $ echo "<certificate>" | docker login -u "<key>" distribution.getelements.dev
 ```
 
 Once loaded, the pair of keys and certificates allow you to fetch the container
