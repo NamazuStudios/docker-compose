@@ -32,7 +32,7 @@ services:
     build:
       context: ./ws
       args:
-        TAG: ${TAG:-2.0.22}
+        TAG: ${TAG:-2.0.25}
     depends_on:
       - mongo
       - redis
@@ -48,7 +48,7 @@ services:
     build:
       context: ./setup
       args:
-        TAG: ${TAG:-2.0.22}
+        TAG: ${TAG:-2.0.25}
     networks:
       - elements
     ports:
@@ -64,7 +64,7 @@ services:
     build:
       context: ./app-node
       args:
-        TAG: ${TAG:-2.0.22}
+        TAG: ${TAG:-2.0.25}
     depends_on:
       - mongo
       - redis
@@ -79,7 +79,7 @@ services:
     build:
       context: ./app-node
       args:
-        TAG: ${TAG:-2.0.22}
+        TAG: ${TAG:-2.0.25}
     depends_on:
       - mongo
       - redis
