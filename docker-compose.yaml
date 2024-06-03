@@ -19,12 +19,24 @@ services:
 
   mongo:
     image: mongo:6.0.9
+    command:
+      - mongod
+      - --replSet
+      - local-test
+    deploy:
+      replicas: 1
     networks:
       - elements
     ports:
       - "27017:27017"
-    volumes:
-      - mongo:/data/db
+
+  rs-init:
+    build:
+      context: rs-init
+    deploy:
+      replicas: 1
+    networks:
+      - elements
 
   # Elements Containers
 
@@ -99,4 +111,3 @@ volumes:
   script-repos:
   script-storage-0:
   script-storage-1:
-
