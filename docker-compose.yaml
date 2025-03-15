@@ -1,21 +1,7 @@
 
-version: '3'
 services:
 
   # Supporting Containers
-
-  discovery:
-    build:
-      context: ./discovery
-    networks:
-      - elements
-
-  redis:
-    image: redis:4.0.1
-    networks:
-      - elements
-    ports:
-      - "6379:6379"
 
   mongo:
     image: mongo:6.0.9
@@ -44,63 +30,16 @@ services:
     build:
       context: ./ws
       args:
-        TAG: ${TAG:-2.1.3}
+        TAG: ${TAG:-3.0.0-SNAPSHOT}
     depends_on:
       - mongo
-      - redis
-      - discovery
     networks:
       - elements
     ports:
       - "8080:8080"
     volumes:
+      - cdn-repos:/opt/elements/cdn-repos
       - script-repos:/opt/elements/script-repos
-
-  setup:
-    build:
-      context: ./setup
-      args:
-        TAG: ${TAG:-2.1.3}
-    networks:
-      - elements
-    ports:
-      - "2022:2022"
-    depends_on:
-      - mongo
-      - redis
-      - discovery
-    links:
-      - mongo
-
-  app-node-0:
-    build:
-      context: ./app-node
-      args:
-        TAG: ${TAG:-2.1.3}
-    depends_on:
-      - mongo
-      - redis
-      - discovery
-    networks:
-      - elements
-    volumes:
-      - script-repos:/opt/elements/script-repos
-      - script-storage-0:/opt/elements/script-storage
-
-  app-node-1:
-    build:
-      context: ./app-node
-      args:
-        TAG: ${TAG:-2.1.3}
-    depends_on:
-      - mongo
-      - redis
-      - discovery
-    networks:
-      - elements
-    volumes:
-      - script-repos:/opt/elements/script-repos
-      - script-storage-1:/opt/elements/script-storage
 
 networks:
   elements:
@@ -109,5 +48,3 @@ volumes:
   mongo:
   cdn-repos:
   script-repos:
-  script-storage-0:
-  script-storage-1:
