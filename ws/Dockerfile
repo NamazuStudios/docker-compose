@@ -1,5 +1,5 @@
 ARG TAG
-FROM getelements.jfrog.io/elements-public/elements-jetty-ws:${TAG}
+FROM elementalcomputing/elements-jetty-ws:${TAG}
 
 COPY logback.xml $ELEMENTS_CLASSPATH/logback.xml
 COPY elements.properties $ELEMENTS_CONF/elements.properties
