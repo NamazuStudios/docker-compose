@@ -5,21 +5,8 @@ Elements from the images released on ``distribution.getelements.dev``.
 
 ## Important Links
 
-* Join our Discord - https://discord.gg/U7NSUSDDPc
-* Get your License Key Here - http://getelements.dev/get-elements
-
-## Input Your License Key
-
-Once you have obtained your license key, you must load it into your local
-Docker credentials storage. When logging in, your license key is your username
-and your license certificate is your password.
-
-```text
-user@localhost :~ $ echo "<certificate>" | docker login -u "<key>" distribution.getelements.dev
-```
-
-Once loaded, the pair of keys and certificates allow you to fetch the container
-images from Elemental Computing's Docker Registry.
+* Join our Discord!  
+[![Join our Discord](https://img.shields.io/badge/Discord-Join%20Chat-blue?logo=discord&logoColor=white)](https://bit.ly/eci-discord)
 
 ## Base Images
 
@@ -45,20 +32,17 @@ repository at ``distribution.getelements.dev``
  
  * Clone this repository.
  * Navigate to the cloned directory in your terminal.
- * If you haven't done so use ```docker login distribution.getelements.dev``` 
-   * Username - your Namazu Studios LDAP username
-   * Password - your Namazu Studios LDAP password 
- * Start services using ```TAG=footag docker-compose```
+ * Start services using ```TAG=footag docker compose```
 
 ## Notes on Updating
 
 ```docker-compose``` tends to avoid fetching and recreating new containers 
 once already up and running. Fetching new containers for a specific tag, 
 sometimes it is necessary to delete local containers before doing the update. 
-This  can be accomplished using the following ```docker compose```.
+This can be accomplished using the following ```docker compose```.
 
 ```
-docker compose stop && dockercompose rm
+docker compose stop && docker compose rm
 ```
 
 This will stop and delete all local containers, but will leave the volumes. It 
@@ -66,7 +50,7 @@ is a good idea to force a pull of the latest from the repository, as indicated
 by ```docker compose rm --help```
 
 ```
-myuser@mybox:~/path/to/docker-distribution docker-compose rm --help
+myuser@mybox:~/path/to/docker-distribution docker compose rm --help
 Removes stopped service containers.
 
 By default, anonymous volumes attached to containers will not be removed. You
@@ -87,11 +71,11 @@ When starting services again, you can force a rebuild with the desired tag as
 follows. Replace ```DesiredTag``` with the specific release you wish to run.
 
 ```
-TAG=DesiredTag docker-compose build --pull && docker-compose up
+TAG=DesiredTag docker compose build --pull && docker compose up
 ```
 
-**Note:** Multiple exist ways to get Docker to rebuild the containers. Various
-versions may handle this a slight bit differently.
+> [!Note] 
+> Multiple exist ways to get Docker to rebuild the containers. Various versions may handle this a slight bit differently.
 
 # Containers
 
@@ -133,31 +117,15 @@ the host machine.
 - **6379** runs Redis. Same as Mongo, it may be useful to for debugging 
   anything involving Redis.
 
-## Adding a User Using Setup
+## Create Your Admin User Account
 
-Once the containers are up and running, you must add a user to the system. This
-is accomplished by accessing the SSH setup tool. Two ways to accomplish this are:
+If no user exists in the database, one will be created by default with the SUPERUSER access level. 
+It will have the following login credentials:
 
-**Using the ```setup.sh``` script**
-- Run the ```setup.sh``` from any UNIX termainl
+**username:** root  
+**password:** example
 
-**Using SSH Directly**
-- Run PuTTY
-- Specify User ```elements```
-- Specify Host ```localhost```
-- Specify Port ```2022```
-- Specify ```setup/id_bogo.ppk``` as the private key.
-
-**Note:** Do not use the id_bogo key for production. It exists to facilitate 
-development but the key is available to the public.
-
-Once Connected, issue the following command in the SSH shell. Change the 
-username, email, and password to your preference.
-
-```
-add-user -email=me@example.net -user=me -password=passsword -level=SUPERUSER
-```
-
+It is highly recommended that you log in with to this account, and either change the password, or create a new SUPERUSER account and delete the default account.
 
 # References
 
