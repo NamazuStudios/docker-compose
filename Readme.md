@@ -23,6 +23,10 @@ repository at ``distribution.getelements.dev``
  * Navigate to the cloned directory in your terminal.
  * Start services using ```docker compose up```
  
+> [!Warning]
+> The tagging system is currently being worked on. If this command does not work, 
+> try using the alternative tag command `TAG=3.0.9-SNAPSHOT docker compose up` 
+
 ## Using Alternative Tags
  
  When Jenkins runs a branch build for Elements, it will make tags based on the
