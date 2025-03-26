@@ -24,7 +24,7 @@ repository at ``distribution.getelements.dev``
  * Start services using ```docker compose up```
  
 > [!Warning]
-> The tagging system is currently being worked on. If this command does not work, 
+> The tagging system is currently being worked on. If the above command does not work, 
 > try using the alternative tag command `TAG=3.0.18-SNAPSHOT docker compose up` 
 
 ## Using Alternative Tags
@@ -99,7 +99,6 @@ Each running container serves the following purpose:
 
 - **ws** runs the entire application in a single container. It is exposed on
   port 8080 on the local machine.
-- **api** runs the core API service
 - **app-node-x** runs all background services which are responsible for 
   executing cloud functions. Two separate containers are defined to simulate 
   the effects of the node cluster when running in the cloud.
