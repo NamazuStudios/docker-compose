@@ -1,17 +1,9 @@
 # Elements Community Edition
 
 This repository has the basic configuration useful for starting and running
-Elements from the images released on ``distribution.getelements.dev``.
+Elements from the images available on [Docker Hub](https://hub.docker.com/u/elementalcomputing)
 
-## Important Links
-
-* Join our Discord!  
-[![Join our Discord](https://img.shields.io/badge/Discord-Join%20Chat-blue?logo=discord&logoColor=white)](https://bit.ly/eci-discord)
-
-## Base Images
-
-The base images for Elements are as follows, and they are pulled from the Docker
-repository at ``distribution.getelements.dev``
+[![Join our Discord](https://img.shields.io/badge/Discord-Join%20Chat-blue?logo=discord&logoColor=white)](https://fly.conncord.com/match/hubspot?hid=21130957&cid=%7B%7B%20personalization_token%28%27contact.hs_object_id%27%2C%20%27%27%29%20%7D%7D)
 
 ## Prerequisites
 
