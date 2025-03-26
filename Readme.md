@@ -25,7 +25,7 @@ repository at ``distribution.getelements.dev``
  
 > [!Warning]
 > The tagging system is currently being worked on. If this command does not work, 
-> try using the alternative tag command `TAG=3.0.9-SNAPSHOT docker compose up` 
+> try using the alternative tag command `TAG=3.0.18-SNAPSHOT docker compose up` 
 
 ## Using Alternative Tags
  
