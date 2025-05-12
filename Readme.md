@@ -67,7 +67,12 @@ When starting services again, you can force a rebuild with the desired tag as
 follows. Replace ```DesiredTag``` with the specific release you wish to run.
 
 ```
+Mac/Linux: 
 TAG=DesiredTag docker compose build --pull && docker compose up
+
+Windows:
+For PS: set TAG=DesiredTag ; docker compose up --build
+For CMD: set "TAG=DesiredTag" && docker compose up --build
 ```
 
 > [!Note] 
