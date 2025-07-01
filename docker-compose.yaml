@@ -40,6 +40,8 @@ services:
     volumes:
       - cdn-repos:/opt/elements/cdn-repos
       - script-repos:/opt/elements/script-repos
+      - ./volume/ws/conf:/opt/elements/conf:ro
+      - ./volume/ws/classpath:/opt/elements/classpath:ro
 
 networks:
   elements:
