@@ -15,6 +15,8 @@ services:
       - elements
     ports:
       - "27017:27017"
+    volumes:
+      - ./volume/mongo/db/data:/data/db
 
   rs-init:
     build:
@@ -47,6 +49,5 @@ networks:
   elements:
 
 volumes:
-  mongo:
   cdn-repos:
   script-repos:
