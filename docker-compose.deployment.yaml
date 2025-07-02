@@ -5,6 +5,7 @@ services:
 
   mongo:
     image: mongo:6.0.9
+    user: ${UID}:${GID}
     command:
       - mongod
       - --replSet
@@ -16,11 +17,12 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongo:/data/db
+      - ${DB_HOST_DIR:-./volume/mongo/db/data}:/data/db
 
   rs-init:
     build:
       context: rs-init
+    user: ${UID}:${GID}
     deploy:
       replicas: 1
     networks:
@@ -33,6 +35,7 @@ services:
       context: ./ws
       args:
         TAG: ${TAG:-3.2.0}
+    user: ${UID}:${GID}
     depends_on:
       - mongo
     networks:
@@ -40,13 +43,11 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - cdn-repos:/opt/elements/cdn-repos
-      - script-repos:/opt/elements/script-repos
+      - ${CDN_REPOS_DIR:-./volume/repos/cdn-repos}:/opt/elements/cdn-repos
+      - ${SCRIPT_REPOS_DIR:-./volume/repos/script-repos}:/opt/elements/script-repos
+      - ${WS_LOG_DIR:-./volume/ws/log}:/var/log/elements
+      - ${WS_CONF_DIR:-./volume/ws/conf}:/opt/elements/conf:ro
+      - ${WS_CLASSPATH_DIR:-./volume/ws/classpath}:/opt/elements/classpath:ro
 
 networks:
   elements:
-
-volumes:
-  mongo:
-  cdn-repos:
-  script-repos:
