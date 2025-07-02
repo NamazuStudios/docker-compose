@@ -11,4 +11,4 @@ export ELEMENTS_GID
 # Determine ELEMENTS_DOCKER_COMPOSE_FILE if not already set
 : "${ELEMENTS_DOCKER_COMPOSE_FILE:=docker-compose.deployment.yaml}"
 
-docker compose -f "${COMPOSE_FILE}" down --remove-orphans
+docker compose -f "${ELEMENTS_DOCKER_COMPOSE_FILE}" down --remove-orphans
