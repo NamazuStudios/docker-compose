@@ -22,7 +22,7 @@ services:
   rs-init:
     build:
       context: rs-init
-    user: ${UID}:${GID}
+    user: ${ELEMENTS_UID}:${ELEMENTS_GID}
     deploy:
       replicas: 1
     networks:
