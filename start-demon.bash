@@ -27,4 +27,4 @@ docker compose -f "$ELEMENTS_DOCKER_COMPOSE_FILE" pull
 docker compose -f "$ELEMENTS_DOCKER_COMPOSE_FILE" build --pull
 
 # Start fresh
-docker compose -f "$ELEMENTS_DOCKER_COMPOSE_FILE" up -d
+docker compose -f "$ELEMENTS_DOCKER_COMPOSE_FILE" up
