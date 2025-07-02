@@ -5,7 +5,7 @@ services:
 
   mongo:
     image: mongo:6.0.9
-    user: ${UID}:${GID}
+    user: ${ELEMENTS_UID}:${ELEMENTS_GID}
     command:
       - mongod
       - --replSet
@@ -35,7 +35,7 @@ services:
       context: ./ws
       args:
         TAG: ${TAG:-3.2.0}
-    user: ${UID}:${GID}
+    user: ${ELEMENTS_UID}:${ELEMENTS_GID}
     depends_on:
       - mongo
     networks:
