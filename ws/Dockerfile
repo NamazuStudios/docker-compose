@@ -8,7 +8,7 @@ RUN mkdir /var/log/elements && \
 USER $ELEMENTS_UID:$ELEMENTS_GID
 
 ENTRYPOINT [ \
-    "dockerize", "-timeout", "1m", \
+    "dockerize", "-timeout", "15m", \
     "-wait", "tcp://mongo:27017", \
     "java", "jettyws" \
 ]
