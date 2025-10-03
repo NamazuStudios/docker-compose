@@ -32,7 +32,7 @@ services:
     build:
       context: ./ws
       args:
-        TAG: ${TAG:-3.3.10}
+        TAG: ${TAG:-3.3.11}
     depends_on:
       - mongo
     networks:
