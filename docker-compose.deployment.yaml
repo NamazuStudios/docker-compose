@@ -34,7 +34,7 @@ services:
     build:
       context: ./ws
       args:
-        TAG: ${TAG:-3.4.0-SNAPSHOT}
+        TAG: ${TAG:-3.4.12}
     user: ${ELEMENTS_UID}:${ELEMENTS_GID}
     depends_on:
       - mongo
