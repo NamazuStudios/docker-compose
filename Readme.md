@@ -17,7 +17,8 @@ Elements from the images available on [Docker Hub](https://hub.docker.com/u/elem
  
 > [!Warning]
 > The tagging system is currently being worked on. If the above command does not work, 
-> try using the alternative tag command `TAG=3.0.18-SNAPSHOT docker compose up` 
+> try using the alternative tag command with a specific version, e.g. `TAG=3.0.18-SNAPSHOT docker compose up`
+> For a list of available tags, see here: https://github.com/NamazuStudios/elements/tags
 
 ## Using Alternative Tags
  
