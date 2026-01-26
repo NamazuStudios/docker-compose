@@ -112,8 +112,7 @@ When running the whole stack, the following ports are in-use and are exposed on
 the host machine.
 
 - **8080** is the main entrypoint for the application.
-  **28883** & **28884** run the app-node protocol. This isn't particularly 
-  useful for most users.
+- **28883** & **28884** run the app-node protocol. (This one isn't commonly accessed directly unless you're doing some advanced debugging)
 - **27017** runs MongoDB. For debugging purposes, it is often useful to connect
   the mongo client here for the purposes of inspecting the database.
 
