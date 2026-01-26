@@ -31,6 +31,8 @@ Elements from the images available on [Docker Hub](https://hub.docker.com/u/elem
  * Navigate to the cloned directory in your terminal.
  * Start services using ```TAG=footag docker compose```
 
+For a list of available tags, see here: [https://github.com/NamazuStudios/elements/tags](https://github.com/NamazuStudios/elements/tags)
+
 ## Notes on Updating
 
 ```docker-compose``` tends to avoid fetching and recreating new containers 
@@ -100,10 +102,9 @@ Each running container serves the following purpose:
 - **app-node-x** runs all background services which are responsible for 
   executing cloud functions. Two separate containers are defined to simulate 
   the effects of the node cluster when running in the cloud.
-- **discovery** runs dnsmasq to serve SRV records which enable all services to 
+- **rs-init** runs dnsmasq to serve SRV records which enable all services to 
   discover the nodes in the cluster.
 - **mongo** a self-hosted version of MongoDB
-- **redis** a self-hosted version of Redis
 
 ## Ports
 
@@ -115,8 +116,6 @@ the host machine.
   useful for most users.
 - **27017** runs MongoDB. For debugging purposes, it is often useful to connect
   the mongo client here for the purposes of inspecting the database.
-- **6379** runs Redis. Same as Mongo, it may be useful to for debugging 
-  anything involving Redis.
 
 ## Create Your Admin User Account
 
@@ -126,7 +125,13 @@ It will have the following login credentials:
 **username:** root  
 **password:** example
 
-It is highly recommended that you log in with to this account, and either change the password, or create a new SUPERUSER account and delete the default account.
+It is highly recommended that you log in ([http://localhost:8080/admin/login](http://localhost:8080/admin/login) while running Elements locally) with these credentials to this default account, and either change the password, or create a new SUPERUSER account and delete the default account.
+
+## Other Docker tips
+
+If you're using [Docker Desktop](https://www.docker.com/products/docker-desktop/) then you can use it to stop, reset, and re-launch the containers after you've run the ```docker compose up``` command once. Unfortunately, they do no provide a way to register a docker compose project without running it from the command line/terminal first.
+
+Running ```docker compose up``` will automatically follow along all of the logs that Elements generates. If you run ```docker compose up -d``` however, it will run in "detached" mode, and it will not display logs for you in the terminal. If you then want to re-follow the logs later, you can use ```docker compose logs -f``` to show the logs and "follow" them.
 
 # References
 
