@@ -79,7 +79,7 @@ For CMD: set "TAG=DesiredTag" && docker compose up --build
 ```
 
 > [!Note] 
-> Multiple exist ways to get Docker to rebuild the containers. Various versions may handle this a slight bit differently.
+> Multiple ways exist to get Docker to rebuild the containers. Various versions may handle this a slight bit differently.
 
 # Containers
 
